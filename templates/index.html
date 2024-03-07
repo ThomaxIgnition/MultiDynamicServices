@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiDynamicServices</title>
+    <!-- Include styles.css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to MultiDynamicServices</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="/about_us">About Us</a>
+            <a href="/admin/login">Admin Login</a>
+        </nav>
+    </header>
+
+    <div id="services" class="services">
+        <!-- Real Estate Management Services -->
+        <a href="/real_estate" class="service" onmouseover="showDetails('service-details-real-estate')" onmouseout="hideDetails('service-details-real-estate')">
+            <h2>Real Estate Management Services</h2>
+            <div id="service-details-real-estate" class="service-details">
+                <p>Our Real Estate Management Services ensure smooth property transactions and effective property management. From buying and selling properties to rental management, we provide comprehensive solutions tailored to your needs.</p>
+            </div>
+        </a>
+
+        <!-- Artisan Services -->
+        <a href="/artisan" class="service" onmouseover="showDetails('service-details-artisan')" onmouseout="hideDetails('service-details-artisan')">
+            <h2>Artisan Services</h2>
+            <div id="service-details-artisan" class="service-details">
+                <p>Our Artisan Services offer expert craftsmanship for your home improvement projects. Whether it's carpentry, plumbing, electrical work, or other trades, our artisans deliver quality results to enhance your living space.</p>
+            </div>
+        </a>
+
+        <!-- Artist Services -->
+        <a href="/artist" class="service" onmouseover="showDetails('service-details-artist')" onmouseout="hideDetails('service-details-artist')">
+            <h2>Artist Services</h2>
+            <div id="service-details-artist" class="service-details">
+                <p>Our Artist Services bring creative visions to life through various mediums such as painting, sculpture, and digital art. We collaborate with clients to express ideas and emotions, creating unique and captivating artwork.</p>
+            </div>
+        </a>
+
+        <!-- Graphics Design Services -->
+        <a href="/graphics_design" class="service" onmouseover="showDetails('service-details-graphics-design')" onmouseout="hideDetails('service-details-graphics-design')">
+            <h2>Graphics Design Services</h2>
+            <div id="service-details-graphics-design" class="service-details">
+                <p>Our Graphics Design Services provide innovative design solutions for branding, marketing, and digital media. From logo design to website graphics, we help businesses stand out with visually appealing and impactful designs.</p>
+            </div>
+        </a>
+
+        <!-- Printing Services -->
+        <a href="/printing" class="service" onmouseover="showDetails('service-details-printing')" onmouseout="hideDetails('service-details-printing')">
+            <h2>Printing Services</h2>
+            <div id="service-details-printing" class="service-details">
+                <p>Our Printing Services offer high-quality printing solutions for various needs including marketing materials, stationery, and promotional items. With state-of-the-art technology, we deliver crisp, vibrant prints to elevate your brand image.</p>
+            </div>
+        </a>
+
+        <!-- Fashion Design Services -->
+        <a href="/fashion_design" class="service" onmouseover="showDetails('service-details-fashion-design')" onmouseout="hideDetails('service-details-fashion-design')">
+            <h2>Fashion Design Services</h2>
+            <div id="service-details-fashion-design" class="service-details">
+                <p>Our Fashion Design Services showcase creativity and expertise in clothing design and styling. From custom garments to fashion consulting, we cater to individual preferences and trends, ensuring a stylish and personalized look.</p>
+            </div>
+        </a>
+
+        <!-- Event Planning & Interior Decoration Services -->
+        <a href="/event_planning_interior_decoration" class="service" onmouseover="showDetails('service-details-event-planning')" onmouseout="hideDetails('service-details-event-planning')">
+            <h2>Event Planning & Interior Decoration Services</h2>
+            <div id="service-details-event-planning" class="service-details">
+                <p>Our Event Planning & Interior Decoration Services bring dreams to reality with meticulous planning and creative design. From event coordination to interior styling, we create memorable experiences and inviting spaces for any occasion.</p>
+            </div>
+        </a>
+
+        <!-- Land Surveying Services -->
+        <a href="/land_surveying" class="service" onmouseover="showDetails('service-details-land-surveying')" onmouseout="hideDetails('service-details-land-surveying')">
+            <h2>Land Surveying Services</h2>
+            <div id="service-details-land-surveying" class="service-details">
+                <p>Our Land Surveying Services provide accurate measurements and assessments for land development projects. With advanced technology and expertise, we ensure precision and compliance with regulatory standards.</p>
+            </div>
+        </a>
+
+        <!-- Quantity Surveying Services -->
+        <a href="/quantity_surveying" class="service" onmouseover="showDetails('service-details-quantity-surveying')" onmouseout="hideDetails('service-details-quantity-surveying')">
+            <h2>Quantity Surveying Services</h2>
+            <div id="service-details-quantity-surveying" class="service-details">
+                <p>Our Quantity Surveying Services offer detailed cost estimation and project management support for construction projects. From initial budgeting to final assessment, we provide insights to optimize resources and minimize expenses.</p>
+            </div>
+        </a>
+
+        <!-- Mechanical Engineering Services -->
+        <a href="/mechanical_engineering" class="service" onmouseover="showDetails('service-details-mechanical-engineering')" onmouseout="hideDetails('service-details-mechanical-engineering')">
+            <h2>Mechanical Engineering Services</h2>
+            <div id="service-details-mechanical-engineering" class="service-details">
+                <p>Our Mechanical Engineering Services deliver innovative solutions for mechanical systems design and analysis. From product development to machinery optimization, we provide engineering expertise to meet diverse industry needs.</p>
+            </div>
+        </a>
+
+        <!-- Toks Automobile Services -->
+        <a href="/toks_automobile" class="service" onmouseover="showDetails('service-details-toks-automobile')" onmouseout="hideDetails('service-details-toks-automobile')">
+            <h2>Toks Automobile Services</h2>
+            <div id="service-details-toks-automobile" class="service-details">
+                <p>Our Toks Automobile Services offer comprehensive vehicle maintenance and repair solutions. From routine servicing to complex repairs, our experienced technicians ensure optimal performance and safety for your vehicle.</p>
+              </div>
+    
+            </a>
+
+    </div>
+
+    <script>
+        function showDetails(id) {
+            var details = document.getElementById(id);
+            details.style.display = 'block';
+        }
+
+        function hideDetails(id) {
+            var details = document.getElementById(id);
+            details.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

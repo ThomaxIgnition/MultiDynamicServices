@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success">
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+        <h2>Media Upload</h2>
+        <form action="{{ url_for('upload_media') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*, video/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        <h2>Uploaded Media</h2>
+        <div class="media-list">
+            {% for media in medias %}
+            <div class="media-item">
+                {% if 'image' in media.type %}
+                <img src="{{ url_for('serve_file', filename=media.filename) }}" alt="{{ media.alt }}" title="{{ media.title }}">
+                {% elif 'video' in media.type %}
+                <video controls>
+                    <source src="{{ url_for('serve_file', filename=media.filename) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
+                <p>{{ media.filename }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="back-button">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

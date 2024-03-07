@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MultiDynamicServices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <h1>About Us</h1>
+    <video controls autoplay>
+        <source src="your_video_file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="about-info">
+        <h2>Detailed Information about MultiDynamicServices</h2>
+        <p>Insert detailed information about your organization here.</p>
+        
+        <!-- Contact Us Section -->
+        <div class="contact-us" onmouseover="showContactDetails()" onmouseout="hideContactDetails()">
+            <h3>Contact Us</h3>
+            <div id="contact-details" style="display: none;">
+                <p>Name: Emmanuel Sunday Thomas</p>
+                <p>Email: thomax4blues@gmail.com</p>
+                <p>Phone/WhatsApp: 09051803210</p>
+            </div>
+        </div>
+        
+        <!-- Back to Home Link -->
+        <a href="/home" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;">Back to home</a>
+
+
+    </div>
+
+    <script>
+        function showContactDetails() {
+            var contactDetails = document.getElementById('contact-details');
+            contactDetails.style.display = 'block';
+        }
+
+        function hideContactDetails() {
+            var contactDetails = document.getElementById('contact-details');
+            contactDetails.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

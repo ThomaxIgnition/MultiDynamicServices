@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apartments.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Apartments</h1>
+        <div class="apartments">
+            {% for apartment in apartments %}
+            <div class="apartment">
+                <img src="{{ url_for('static', filename='uploads/' + apartment.media[0].filename) }}" alt="Apartment Image">
+                <div class="details">
+                    <h2>{{ apartment.name }}</h2>
+                    <p><strong>Rent:</strong> {{ apartment.rent }}</p>
+                    <p><strong>Agg & Comm:</strong> {{ apartment.agg_comm }}</p>
+                    <p><strong>Legal Fees:</strong> {{ apartment.legal_fees }}</p>
+                    <p><strong>Service Charge:</strong> {{ apartment.service_charge }}</p>
+                    <p><strong>Caution Fees:</strong> {{ apartment.caution_fees }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
