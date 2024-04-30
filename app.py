@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from werkzeug.utils import secure_filename
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from flask_bcrypt import Bcrypt
 import os
@@ -10,7 +9,6 @@ import secrets
 
 # Generate secret key
 secret_key = secrets.token_hex(16)
-print(f"Generated secret key: {secret_key}")
 
 app = Flask(__name__, static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///real_estate.db'
@@ -25,10 +23,11 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+# Define database models
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(100), nullable=False)  # Add this line
+    password_hash = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(100), nullable=False)
 
     def set_password(self, password):
@@ -37,18 +36,15 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password_hash, password)
 
-
 class Apartment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     location_id = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
     media = db.relationship('Media', backref='apartment', lazy=True)
-    # Define other columns as needed
 
 class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    # Define other columns as needed
 
 class Media(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -68,14 +64,13 @@ def load_user(user_id):
 
 with app.app_context():
     db.create_all()
-    # Create the admin user if it doesn't exist
     admin = Admin.query.filter_by(username='Thomax').first()
     if not admin:
-        admin = Admin(username='Thomax', password='blues4life')  # Set the password
+        admin = Admin(username='Thomax', password='blues4life')
         db.session.add(admin)
         db.session.commit()
 
-
+# Define routes
 @app.route('/')
 def index():
     if current_user.is_authenticated:
@@ -90,6 +85,23 @@ def real_estate():
     except Exception as e:
         traceback.print_exc()
         return str(e), 500
+
+@app.route('/rent')
+def rent():
+    app.logger.debug("Rendering rent.html")
+    return render_template('rent.html')
+
+@app.route('/shomolu.html')
+def shomolu():
+    return render_template('shomolu.html')
+
+@app.route('/rent.html')
+def rent_page():
+    return render_template('rent.html')
+
+@app.route('/real_estate_home')
+def real_estate_home():
+    return render_template('real_estate.html')
 
 @app.route('/locations')
 def get_locations():
@@ -106,11 +118,10 @@ def get_apartments(location_id):
 def upload_media():
     if request.method == 'POST':
         file = request.files['file']
-        apartment_id = request.form.get('apartment_id')  # Get the apartment ID from the form
+        apartment_id = request.form.get('apartment_id')
         if file and apartment_id:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # Save file information to the database
             media = Media(filename=filename, apartment_id=apartment_id)
             db.session.add(media)
             db.session.commit()
@@ -124,7 +135,6 @@ def admin_login():
         password = request.form['password']
         admin = Admin.query.filter_by(username=username).first()
         if admin and admin.check_password(password):
-            # Login successful, redirect to admin dashboard
             return redirect(url_for('admin_dashboard'))
         else:
             flash('Invalid username or password.')
@@ -138,7 +148,6 @@ def admin_dashboard():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # Save file information to the database
             media = Media(filename=filename)
             db.session.add(media)
             db.session.commit()
@@ -152,21 +161,18 @@ def admin_dashboard():
 @app.route('/register_now', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        # Check if passwords match
         if request.form['password'] != request.form['confirm_password']:
             error = "Passwords do not match"
             return render_template('register.html', error=error)
         
         username = request.form['username']
         password = request.form['password']
-        role = 'user'  # Set default role for new users
+        role = 'user'
         
-        # Check if user already exists
         if User.query.filter_by(username=username).first():
             error = "Username already exists"
             return render_template('register.html', error=error)
         
-        # Create new user
         new_user = User(username=username, role=role)
         new_user.set_password(password)
         try:
@@ -175,13 +181,12 @@ def register():
             flash('Registration successful. Please login.')
             return redirect(url_for('index'))
         except Exception as e:
-            db.session.rollback()  # Rollback changes if an exception occurs
+            db.session.rollback()
             error = "An error occurred while registering. Please try again."
-            print(e)  # Print the error for debugging purposes
+            print(e)
             return render_template('register.html', error=error)
 
     return render_template('register.html')
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -220,4 +225,5 @@ def serve_file(filename):
 
 if __name__ == '__main__':
     print(app.config['UPLOAD_FOLDER'])
+    print("Database URI:", app.config['SQLALCHEMY_DATABASE_URI'])
     app.run()

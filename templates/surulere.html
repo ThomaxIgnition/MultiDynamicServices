@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surulere - Featured Listings</title>
+    <style>
+        
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/CBm3Htr/bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            animation: ripple 5s infinite alternate;
+        }
+
+        @keyframes ripple {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* Header styles */
+        header {
+            background-color: #006aff;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Navigation styles */
+        nav {
+            background-color: #f7f7f7;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav ul {
+            display: flex;
+            justify-content: flex-start;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        /* Main content styles */
+        .main-content {
+            padding: 20px;
+        }
+        /* Featured listings styles */
+        .featured-listings {
+            margin-top: 20px;
+        }
+        .listing {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .listing img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .listing h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .listing p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .listing a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #006aff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Find Your Home button styles */
+        .locations {
+            position: absolute;
+            top: 50px; /* Adjust the top position */
+            left: 20px; /* Adjust the left position */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .locations button {
+            font-size: 32px; /* Increased font size */
+            font-weight: bold;
+            background-color: royalblue;
+            color: white;
+            padding: 20px 40px; /* Increased padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .locations button:hover {
+            background-color: #0056b3;
+        }
+
+        .locations ul {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+        }
+
+        .locations ul li {
+            margin-bottom: 5px;
+        }
+
+        .locations ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .locations.active ul {
+            display: block;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section class="featured-listings">
+        <h2>Featured Listings - Bariga</h2>
+        <div class="listings">
+            <!-- Listing 1 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Alagomeji, Yaba, Lagos</h3>
+                    <p>2 beds | 2 baths&toilets | Upflat</p>
+                    <p>Price: N2m - N2,5000,000 p/a</p>
+                    <a href="#" class="view-details">View Details</a>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 2 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Adekunle, Yaba, Lagos</h3>
+                    <p>2 beds | 2 baths&toilets | Ground Flat</p>
+                    <p>Price: N2m - N2,5000,000 p/a</p>
+                    <a href="#" class="view-details">View Details</a>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more listings as needed -->
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Real Estate Management. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -17,3 +17,82 @@ h1 {
 }
 
 /* Add your additional styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        /* Rent Section */
+        #rent {
+            display: none;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        #rent .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        #rent .header a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        #rent .locations {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        #rent .locations h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        #rent .locations ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #rent .locations ul li {
+            margin-bottom: 10px;
+        }
+        
+        #rent .locations ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        
+        #rent .locations ul li a:hover {
+            color: #007bff;
+        }

@@ -1,316 +1,548 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome To Real Estate Management</title>
-    <!-- Include styles.css -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
-    
+    <title>MDS</title>
     <style>
-        /* Adopting styles from index.html */
-        /* CSS styles from index.html */
+        /* Add your custom styles here */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            line-height: 1.6;
         }
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 0 20px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #333;
+            background-color: #007bff;
             color: #fff;
             padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-links, .main-links {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .top-links li, .main-links li {
+            margin: 0 10px;
+        }
+        .top-links li a, .main-links li a {
+            color: #fff;
             text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background-color: #555;
-        }
-
-        /* Additional styles for real_estate.html */
-        .properties {
-            padding: 20px;
-        }
-        .property {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .property h3 {
-            margin-top: 0;
-        }
-        .property p {
-            margin-bottom: 5px;
-        }
-        .property .media {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 200px;
-        }
-        .property .media img,
-        .property .media video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        .property .media:hover img,
-        .property .media:hover video {
-            transform: scale(1.2);
-        }
-        .property .details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            transition: opacity 0.5s;
-            opacity: 0;
-        }
-        .property .media:hover .details {
-            opacity: 1;
-        }
-        .property .details p {
-            margin: 5px 0;
-        }
-        .whatsapp-chat {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
             font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
         }
-        .whatsapp-chat:hover {
-            background-color: #128C7E;
+        .logo {
+            border: 2px solid #fff;
+            border-radius: 50%;
+            padding: 10px;
         }
-        footer {
+        .logo h1 {
+            margin: 0;
+            font-size: 48px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+        }
+        h2 {
+            font-size: 24px;
             margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .hero {
             text-align: center;
+            padding: 50px 0;
+            position: relative;
+            background-image: url('https://exoticplans.com/wp-content/uploads/2023/06/5-bedrooms-duplex-042.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-image 0.5s ease;
+        }
+        .hero:hover {
+            background-image: url('https://www.nairaland.com/attachments/13338146_qw5_jpeg431822b02cd5cedf215a3f0f5aad443e');
+        }
+        .hero .content {
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .hero form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .hero input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+        .hero button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .featured-listings {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+        .listing {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+        
+        .listing:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+        
+        .listing img {
+            width: 300px; /* Set the width to 300px */
+            height: 200px; /* Set the height to 200px */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .listing h3 {
+            margin: 0;
+        }
+        .listing p {
+            margin: 5px 0;
             color: #666;
         }
+        .listing a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        footer ul li {
+            margin: 0 10px;
+        }
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        
+        
+        
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome To Real Estate Management</h1>
+        <nav>
+            <ul class="top-links">
+                <li><a href="#">Buy</a></li>
+                <a href="/rent">Rent</a>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">Home Loans</a></li>
+                <li><a href="#">Agent Finder</a></li>
+            </ul>
+            <div class="logo">
+                <h1> MDS </h1>
+            </div>
+            <ul class="main-links">
+                <a href="/home" style="color: #007bff; text-decoration: none; cursor: pointer;">Home</a>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Sign Out</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+        <h2>Real Estate, Apartments, Mortgages & Home Values</h2>
     </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>Find Your Perfect Home</h1>
+            <form>
+                <input type="text" placeholder="Enter address, neighborhood, city, or ZIP code">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
     
-    <div class="container">
-        <div>
-            <label for="property-type">What do you need?</label>
-            <select id="property-type" onchange="showLocationDropdown()">
-                <option value="">Select an option</option>
-                <option value="roomself">Roomself</option>
-                <option value="miniflat">Miniflat</option>
-                <option value="2bedroom">2 Bedroom</option>
-                <option value="3bedroom">3 Bedroom</option>
-                <option value="4bedroomduplex">4 Bedroom Duplex</option>
-                <option value="5bedroomduplex">5 Bedroom Duplex</option>
-                <option value="more">More</option>
-            </select>
-        </div>
+    <style>
+        .additional-details {
+            display: none;
+        }
+    </style>
+    
+    <section class="featured-listings">
+        <style>
+            .additional-details {
+                display: none;
+            }
+        </style>
+        <<section class="featured-listings">
+            <h2>Featured Listings</h2>
+            <div class="listings">
+                <!-- Listing 1 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Alagomeji, Yaba, Lagos</h3>
+                        <p>2 beds | 2 baths&toilets | Upflat</p>
+                        <p>Price: N2m - N2,5000,000 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Adekunle, Yaba, Lagos</h3>
+                        <p>2 beds | 2 baths&toilets | Ground Flat</p>
+                        <p>Price: N2m - N2,5000,000 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/FHQwF0n/image3.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Onike, Yaba, Lagos</h3>
+                        <p>2 beds | 2 baths&toilets | upflat&Groundflat</p>
+                        <p>Price: N2m - N2,5000,000 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 4 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/tp8wB59/image4.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Sabo, Yaba, Lagos</h3>
+                        <p>3 beds | 2 baths&toileets | Upflat</p>
+                        <p>Price: N2m - N2,5000,000 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 5 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/cYsZZ3V/image5.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Ebute-Metta, Yaba, Lagos</h3>
+                        <p>2 beds | 2 bathstoilets | Groundflat</p>
+                        <p>Price: N2m - N2,5000,000 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <div id="location-dropdown" style="display: none;">
-            <label for="location">Location:</label>
-            <select id="location" onchange="showAvailableApartments()">
-                <option value="">Select a location</option>
-                <option value="shomolu">Shomolu</option>
-                <option value="bariga">Bariga</option>
-                <option value="ladi-lak">Ladi-Lak</option>
-                <option value="pedro">Pedro</option>
-                <option value="ilaje">Ilaje</option>
-                <option value="yaba">Yaba</option>
-                <option value="surulere">Surulere</option>
-                <option value="gbagada">Gbagada</option>
-            </select>
-        </div>
-        
-        <div id="available-apartments" style="display: none;">
-            <label for="apartment">Available Apartments:</label>
-            <select id="apartment" onchange="showMediaDetails()">
-                <option value="">Select an apartment</option>
-            </select>
-            <input type="file" id="media-upload" accept="image/*, video/*" style="display: none;">
-            <button onclick="document.getElementById('media-upload').click()">Upload Media</button>
+                    <!-- 3-bedroom Listings -->
+                    <h3>3-bedroom Apartments</h3>
+                    <!-- Listing 1 -->
+                    <div class="listing">
+                        <img src="https://i.ibb.co/hBLCtw1/3bed1.jpg" alt="Listing Image">
+                        <div class="details">
+                            <h3>Alagomeji, Yaba, Lagos</h3>
+                            <p>3 beds | All Rooms ensuite | Upflat</p>
+                            <p>Price: N3m - N3,5000,000 p/a</p>
+                            <a href="#" class="view-details">View Details</a>
+                            <div class="additional-details">
+                                <p>Agg/Comm</p>
+                                <p>Service Charge</p>
+                                <p>Caution Fee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing 2 -->
+                    <div class="listing">
+                        <img src="https://i.ibb.co/8B5nRSZ/3bed2.jpg" alt="Listing Image">
+                        <div class="3bedroom">
+                            <h3>Adekunle, Yaba, Lagos</h3>
+                            <p>3 bed | All Rooms ensuite | Upflat</p>
+                            <p>Price: N3m - N3,5000,000 p/a</p>
+                            <a href="#" class="view-details">View Details</a>
+                            <div class="additional-details">
+                                <p>Agg/Comm</p>
+                                <p>Service Charge</p>
+                                <p>Caution Fee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing 3 -->
+                    <div class="listing">
+                        <img src="https://i.ibb.co/Wf79yxG/3bed3.jpg" alt="Listing Image">
+                        <div class="3bedroom">
+                            <h3>Onike, Yaba, Lagos</h3>
+                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
+                            <p>Price: N3m - N3,5000,000 p/a</p>
+                            <a href="#" class="view-details">View Details</a>
+                            <div class="additional-details">
+                                <p>Agg/Comm</p>
+                                <p>Service Charge</p>
+                                <p>Caution Fee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing 4 -->
+                    <div class="listing">
+                        <img src="https://i.ibb.co/DKKkkNB/3bed4.jpg" alt="Listing Image">
+                        <div class="3bedroom">
+                            <h3>Sabo, Yaba, Lagos</h3>
+                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
+                            <p>Price: N3m - N3,5000,000 p/a</p>
+                            <a href="#" class="view-details">View Details</a>
+                            <div class="additional-details">
+                                <p>Agg/Comm</p>
+                                <p>Service Charge</p>
+                                <p>Caution Fee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing 5 -->
+                    <div class="listing">
+                        <img src="https://i.ibb.co/Ssf1VZp/3bed5.jpg" alt="Listing Image">
+                        <div class="3bedroom">
+                            <h3>Ebutte Meta, Yaba, Lagos</h3>
+                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
+                            <p>Price: N3m - N3,5000,000 p/a</p>
+                            <a href="#" class="view-details">View Details</a>
+                            <div class="additional-details">
+                                <p>Agg/Comm</p>
+                                <p>Service Charge</p>
+                                <p>Caution Fee</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+        <!-- 1-bedroom Listings -->
+<h3>1-bedroom Apartments</h3>
+<!-- Listing 1 -->
+<div class="listing">
+    <img src="https://i.ibb.co/rpm553n/1bed1.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Alagomeji, Yaba, Lagos</h3>
+        <p>1 bed | 1 bath & toilet | Upflat</p>
+        <p>Price: N800,000 - N1,5000,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
         </div>
     </div>
+</div>
+<!-- Listing 2 -->
+<div class="listing">
+    <img src="https://i.ibb.co/MRGbDy8/1bed2.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Adekunle, Yaba, Lagos</h3>
+        <p>1 bed | 1 bath & toilet | Upflat</p>
+        <p>Price: N800,000 - N1,5000,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 3 -->
+<div class="listing">
+    <img src="https://i.ibb.co/3Cfp8vc/1bed3.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Onike/Iwaya, Yaba, Lagos</h3>
+        <p>1 bed | 1 bath & toilet | Upflat</p>
+        <p>Price: N750,000 - N1,5000,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 4 -->
+<div class="listing">
+    <img src="https://i.ibb.co/Mk4LMd5/1bed4.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Sabo, Yaba, Lagos</h3>
+        <p>1 bed | 1 bath & toilet | Upflat</p>
+        <p>Price: N800,000 - N1,5000,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 5 -->
+<div class="listing">
+    <img src="https://i.ibb.co/J2SDK2D/1bed5.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Ebutte-Meta, Yaba, Lagos</h3>
+        <p>1 bed | 1 bath & toilet | Upflat</p>
+        <p>Price: N800,000 - N1,5000,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
 
-    <!-- WhatsApp Chat Button -->
-    <a id="whatsapp-link" href="#" class="whatsapp-chat" style="display: none;">Chat with Us on WhatsApp</a>
+        <!-- Roomself Listings -->
+<h3>Roomself-contained Apartments</h3>
+<!-- Listing 1 -->
+<div class="listing">
+    <img src="https://i.ibb.co/zH6dbHc/roomself1.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Alagomeji, Yaba, Lagos</h3>
+        <p>Roomself | 1 bath & toilet | Upstairs</p>
+        <p>Price: N600,000 - N800,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 2 -->
+<div class="listing">
+    <img src="https://i.ibb.co/rfmJ6SQ/roomself2.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Adekunle, Yaba, Lagos</h3>
+        <p>Roomself | 1 bath & toilet | Upstairs</p>
+        <p>Price: N500,000 - N800,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 3 -->
+<div class="listing">
+    <img src="https://i.ibb.co/RhPLfgD/roomself3.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Onike/Iwaya, Yaba, Lagos</h3>
+        <p>Roomself | 1 bath & toilet | Upstairs</p>
+        <p>Price: N500,000 - N800,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
+<!-- Listing 4 -->
+<div class="listing">
+    <img src="https://i.ibb.co/wp4VKbz/roomself4.jpg" alt="Listing Image">
+    <div class="details">
+        <h3>Ebutte Meta, Yaba, Lagos</h3>
+        <p>Roomself | 1 bath & toilet | Upstairs</p>
+        <p>Price: N500,000 - N800,000 p/a</p>
+        <a href="#" class="view-details">View Details</a>
+        <div class="additional-details">
+            <p>Agg/Comm</p>
+            <p>Service Charge</p>
+            <p>Caution Fee</p>
+        </div>
+    </div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Contact us for more information: +234 9051803210</p>
-        <p>Email: thomax4blues@gmail.com</p>
-        <a href="/home" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border: none; border-radius: 5px; cursor: pointer;">Back to home</a>
-    </footer>
-
-    <!-- JavaScript for dropdown functionality -->
-    <script>
-        const availableApartments = {
-            roomself: {
-                shomolu: ['Apartment 1', 'Apartment 2'],
-                bariga: ['Apartment 3', 'Apartment 4'],
-                ladi_lak: ['Apartment 9', 'Apartment 10'],
-                pedro: ['Apartment 11', 'Apartment 12'],
-                ilaje: ['Apartment 13', 'Apartment 14'],
-                yaba: ['Apartment 15', 'Apartment 16'],
-                surulere: ['Apartment 17', 'Apartment 18'],
-                gbagada: ['Apartment 19', 'Apartment 20']
-            },
-            miniflat: {
-                shomolu: ['Apartment 5', 'Apartment 6'],
-                bariga: ['Apartment 7', 'Apartment 8'],
-                ladi_lak: ['Apartment 21', 'Apartment 22'],
-                pedro: ['Apartment 23', 'Apartment 24'],
-                ilaje: ['Apartment 25', 'Apartment 26'],
-                yaba: ['Apartment 27', 'Apartment 28'],
-                surulere: ['Apartment 29', 'Apartment 30'],
-                gbagada: ['Apartment 31', 'Apartment 32']
-            },
-            '2bedroom': {
-                shomolu: ['Apartment 33', 'Apartment 34'],
-                bariga: ['Apartment 35', 'Apartment 36'],
-                ladi_lak: ['Apartment 37', 'Apartment 38'],
-                pedro: ['Apartment 39', 'Apartment 40'],
-                ilaje: ['Apartment 41', 'Apartment 42'],
-                yaba: ['Apartment 43', 'Apartment 44'],
-                surulere: ['Apartment 45', 'Apartment 46'],
-                gbagada: ['Apartment 47', 'Apartment 48']
-            },
-            '3bedroom': {
-                shomolu: ['Apartment 49', 'Apartment 50'],
-                bariga: ['Apartment 51', 'Apartment 52'],
-                ladi_lak: ['Apartment 53', 'Apartment 54'],
-                pedro: ['Apartment 55', 'Apartment 56'],
-                ilaje: ['Apartment 57', 'Apartment 58'],
-                yaba: ['Apartment 59', 'Apartment 60'],
-                surulere: ['Apartment 61', 'Apartment 62'],
-                gbagada: ['Apartment 63', 'Apartment 64']
-            },
-            '4bedroomduplex': {
-                shomolu: ['Apartment 65', 'Apartment 66'],
-                bariga: ['Apartment 67', 'Apartment 68'],
-                ladi_lak: ['Apartment 69', 'Apartment 70'],
-                pedro: ['Apartment 71', 'Apartment 72'],
-                ilaje: ['Apartment 73', 'Apartment 74'],
-                yaba: ['Apartment 75', 'Apartment 76'],
-                surulere: ['Apartment 77', 'Apartment 78'],
-                gbagada: ['Apartment 79', 'Apartment 80']
-            },
-            '5bedroomduplex': {
-                shomolu: ['Apartment 81', 'Apartment 82'],
-                bariga: ['Apartment 83', 'Apartment 84'],
-                ladi_lak: ['Apartment 85', 'Apartment 86'],
-                pedro: ['Apartment 87', 'Apartment 88'],
-                ilaje: ['Apartment 89', 'Apartment 90'],
-                yaba: ['Apartment 91', 'Apartment 92'],
-                surulere: ['Apartment 93', 'Apartment 94'],
-                gbagada: ['Apartment 95', 'Apartment 96']
-            },
-            more: {}
-        };
-
-        function showLocationDropdown() {
-            const propertyType = document.getElementById('property-type').value;
-            const locationDropdown = document.getElementById('location-dropdown');
-            const whatsappLink = document.getElementById('whatsapp-link');
-
-            if (propertyType === 'more') {
-                locationDropdown.style.display = 'none';
-                whatsappLink.style.display = 'block';
-                whatsappLink.href = 'https://wa.me/+2349051803210';
-            } else {
-                locationDropdown.style.display = 'block';
-                whatsappLink.style.display = 'none';
-            }
-        }
-
-        function showAvailableApartments() {
-            const propertyType = document.getElementById('property-type').value;
-            const location = document.getElementById('location').value;
-            const availableApartmentsDropdown = document.getElementById('available-apartments');
-            const apartmentDropdown = document.getElementById('apartment');
-            apartmentDropdown.innerHTML = '<option value="">Select an apartment</option>';
-
-            if (availableApartments[propertyType]) {
-                for (const loc in availableApartments[propertyType]) {
-                    if (loc === location || location === "") {
-                        availableApartments[propertyType][loc].forEach(apartment => {
-                            const option = document.createElement('option');
-                            option.value = apartment;
-                            option.textContent = apartment;
-                            apartmentDropdown.appendChild(option);
-                        });
-                    }
-                }
-                availableApartmentsDropdown.style.display = 'block';
-            } else {
-                availableApartmentsDropdown.style.display = 'none';
-            }
-        }
-
-        function showMediaDetails() {
-            const apartment = document.getElementById('apartment').value;
-            const mediaUpload = document.getElementById('media-upload');
-            const mediaDetailsContainer = document.getElementById('media-details-container');
-            const isAdmin = true; // Assume the user is the admin for demonstration purposes
+    </section>
+     <footer>
+            <p>&copy; 2024 MDS. All rights reserved.</p>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Investors</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </footer>
         
-            // Show the media upload button only for the admin user
-            mediaUpload.style.display = isAdmin ? 'block' : 'none';
-        
-            mediaUpload.onchange = function () {
-                const file = mediaUpload.files[0];
-                const reader = new FileReader();
-        
-                reader.onload = function (e) {
-                    const mediaPreview = document.createElement('div');
-                    mediaPreview.className = 'media-preview';
-                    mediaPreview.innerHTML = `
-                        <p>Apartment: ${apartment}</p>
-                        <p>Filename: ${file.name}</p>
-                        <p>Size: ${file.size} bytes</p>
-                        <img src="${e.target.result}" alt="Preview" style="max-width: 100%; height: auto;">
-                    `;
-                    mediaDetailsContainer.innerHTML = ''; // Clear previous previews
-                    mediaDetailsContainer.appendChild(mediaPreview);
-                };
-        
-                reader.readAsDataURL(file);
-            };
-        }
-        
-    </script>
-</body>
-</html>
+        <script>
+            // JavaScript to toggle the visibility of additional details
+            const viewDetailsLinks = document.querySelectorAll('.view-details');
+            viewDetailsLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const details = this.nextElementSibling;
+                    details.style.display = 'block';
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
