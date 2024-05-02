@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmgrove - Featured Listings</title>
+    <a href="rent.html" class="return-button">Return to Rent</a>
     <style>
-        
         /* Reset some default styles */
         body, h1, h2, h3, p, ul, li {
             margin: 0;
@@ -16,25 +16,9 @@
         }
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://i.ibb.co/CBm3Htr/bg.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            animation: ripple 5s infinite alternate;
+            background-color: #f6f6f6;
         }
 
-        @keyframes ripple {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
         /* Header styles */
         header {
             background-color: #006aff;
@@ -45,47 +29,50 @@
             justify-content: space-between;
             align-items: center;
         }
-        /* Navigation styles */
-        nav {
-            background-color: #f7f7f7;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav ul {
-            display: flex;
-            justify-content: flex-start;
-        }
-        nav ul li {
-            margin-right: 20px;
-        }
+
         /* Main content styles */
-        .main-content {
+        .listings-section {
             padding: 20px;
         }
-        /* Featured listings styles */
-        .featured-listings {
-            margin-top: 20px;
+
+        .listings {
+            display: flex;
+            flex-wrap: wrap; /* Allow listings to wrap to the next line */
+            justify-content: space-between; /* Distribute listings evenly */
+            max-width: 1200px; /* Maximum width of the listings container */
+            margin: 0 auto; /* Center the container */
+            overflow: hidden; /* Clear the float */
         }
+
         .listing {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
+            width: calc(20% - 1%); /* Set the width of each listing to 20% with margin included */
+            margin-bottom: 20px; /* Add margin at the bottom of each listing */
+            box-sizing: border-box; /* Include padding and border in the width */
+            transition: transform 0.3s; /* Add transition for smooth animation */
         }
+
+        .listing:hover {
+            transform: translateY(-10px); /* Apply a more pronounced bounce effect on hover */
+        }
+
         .listing img {
-            width: 100%;
+            max-width: 100%; /* Set the maximum width of the images to 100% */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 5px;
             margin-bottom: 10px;
         }
+
         .listing h3 {
             font-size: 18px;
             margin-bottom: 10px;
         }
+
         .listing p {
             font-size: 14px;
             color: #666;
             margin-bottom: 10px;
         }
+
         .listing a {
             display: inline-block;
             padding: 5px 10px;
@@ -94,117 +81,494 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
         /* Footer styles */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer p {
-            margin: 0;
         }
 
-        /* Find Your Home button styles */
-        .locations {
-            position: absolute;
-            top: 50px; /* Adjust the top position */
-            left: 20px; /* Adjust the left position */
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Responsive styles */
+        @media only screen and (max-width: 1200px) {
+            .listing {
+                width: calc(25% - 1%); /* Adjust width for smaller screens to fit 4 listings in a row with margin included */
+            }
         }
 
-        .locations button {
-            font-size: 32px; /* Increased font size */
-            font-weight: bold;
-            background-color: royalblue;
-            color: white;
-            padding: 20px 40px; /* Increased padding */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        @media only screen and (max-width: 900px) {
+            .listing {
+                width: calc(33.33% - 1%); /* Adjust width for smaller screens to fit 3 listings in a row with margin included */
+            }
         }
 
-        .locations button:hover {
-            background-color: #0056b3;
+        @media only screen and (max-width: 600px) {
+            .listing {
+                width: calc(50% - 1%); /* Adjust width for smaller screens to fit 2 listings in a row with margin included */
+            }
         }
 
-        .locations ul {
-            display: none;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1;
+        @media only screen and (max-width: 400px) {
+            .listing {
+                width: calc(100% - 1%); /* Adjust width for smaller screens to fit 1 listing in a row with margin included */
+            }
         }
-
-        .locations ul li {
-            margin-bottom: 5px;
-        }
-
-        .locations ul li a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-
-        .locations.active ul {
-            display: block;
-        }
-        
     </style>
 </head>
 
 <body>
-    <section class="featured-listings">
-        <h2>Featured Listings - Bariga</h2>
+    <header>
+        <h1>Shomolu - Featured Listings</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="listings-section" id="roomself-listings">
+        <h2>Roomself Listings</h2>
         <div class="listings">
             <!-- Listing 1 -->
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Alagomeji, Yaba, Lagos</h3>
-                    <p>2 beds | 2 baths&toilets | Upflat</p>
+                    <h3>Shomolu, Yaba, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Upflat</p>
                     <p>Price: N2m - N2,5000,000 p/a</p>
-                    <a href="#" class="view-details">View Details</a>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
                         <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
                     </div>
                 </div>
             </div>
             <!-- Listing 2 -->
             <div class="listing">
-                <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                <img src="https://i.ibb.co/dtBtdsM/image2.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Adekunle, Yaba, Lagos</h3>
-                    <p>2 beds | 2 baths&toilets | Ground Flat</p>
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Upflat</p>
                     <p>Price: N2m - N2,5000,000 p/a</p>
-                    <a href="#" class="view-details">View Details</a>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
                         <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
                     </div>
                 </div>
             </div>
-            <!-- Add more listings as needed -->
+            <!-- Add other roomself listings here -->
+            <!-- Listing 3 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image3.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 4 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image4.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 5 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image5.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Miniflat Listings -->
+    <section class="listings-section" id="miniflat-listings">
+        <h2>Miniflat Listings</h2>
+        <div class="listings">
+            <!-- Listing 1 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image6.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N1.5m - N2m p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 2 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image7.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Upflat</p>
+                    <p>Price: N2m - N2,500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Add other miniflat listings here -->
+            <!-- Listing 3 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image8.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 4 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image9.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 5 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image10.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2 Bedroom Listings -->
+    <section class="listings-section" id="2-bedroom-listings">
+        <h2>2 Bedroom Listings</h2>
+        <div class="listings">
+            <!-- Listing 1 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image11.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N1.5m - N2m p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 2 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image12.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Upflat</p>
+                    <p>Price: N2m - N2,500,000 p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Add other 2 bedroom listings here -->
+            <!-- Listing 3 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image13.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N1.5m - N2m p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 4 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image14.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N1.5m - N2m p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Listing 5 -->
+            <div class="listing">
+                <img src="https://i.ibb.co/dtBtdsM/image15.jpg" alt="Listing Image">
+                <div class="details">
+                    <h3>Shomolu, Lagos</h3>
+                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N1.5m - N2m p/a</p>
+                    <div class="additional-details">
+                        <p>Agg/Comm</p>
+                        <p>Service Charge</p>
+                        <p>Caution Fee</p>
+                        <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Bedroom Listings -->
+<section class="listings-section" id="3-bedroom-listings">
+    <h2>3 Bedroom Listings</h2>
+    <div class="listings">
+        <!-- Listing 1 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image16.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>3 beds | 3 baths & toilets | Flat</p>
+                <p>Price: N2m - N2.5m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 2 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image17.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>3 beds | 3 baths & toilets | Flat</p>
+                <p>Price: N2m - N2.5m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Add other 3 bedroom listings here -->
+        <!-- Listing 3 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image18.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>3 beds | 3 baths & toilets | Flat</p>
+                <p>Price: N2m - N2.5m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 4 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image19.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>3 beds | 3 baths & toilets | Flat</p>
+                <p>Price: N2m - N2.5m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 5 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image20.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>3 beds | 3 baths & toilets | Flat</p>
+                <p>Price: N2m - N2.5m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Duplex Listings -->
+<section class="listings-section" id="duplex-listings">
+    <h2>Duplex Listings</h2>
+    <div class="listings">
+        <!-- Listing 1 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image21.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>4 beds | 4 baths & toilets | Duplex</p>
+                <p>Price: N3m - N4m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 2 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image22.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>4 beds | 4 baths & toilets | Duplex</p>
+                <p>Price: N3m - N4m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Add other duplex listings here -->
+        <!-- Listing 3 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image23.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>4 beds | 4 baths & toilets | Duplex</p>
+                <p>Price: N3m - N4m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 4 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image24.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>4 beds | 4 baths & toilets | Duplex</p>
+                <p>Price: N3m - N4m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Listing 5 -->
+        <div class="listing">
+            <img src="https://i.ibb.co/dtBtdsM/image25.jpg" alt="Listing Image">
+            <div class="details">
+                <h3>Shomolu, Lagos</h3>
+                <p>4 beds | 4 baths & toilets | Duplex</p>
+                <p>Price: N3m - N4m p/a</p>
+                <div class="additional-details">
+                    <p>Agg/Comm</p>
+                    <p>Service Charge</p>
+                    <p>Caution Fee</p>
+                    <a href="https://wa.me/2349051803210" class="pay-now" style="display:inline-block;padding:12px 24px;background-color:#007bff;color:white;text-decoration:none;border-radius:25px;transition:background-color 0.3s,border-color 0.3s,border-radius 0.3s,border-width 0.3s;border:2px solid #007bff;font-weight:bold;text-transform:uppercase;">PAY NOW</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <footer>
-        <p>&copy; 2024 Real Estate Management. All Rights Reserved.</p>
+        <p>&copy; 2024 Real Estate MDS</p>
     </footer>
 </body>
 
