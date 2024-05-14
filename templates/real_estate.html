@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MDS</title>
     <style>
-        /* Add your custom styles here */
+        /* Global styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -14,36 +14,46 @@
             background-color: #f4f4f4;
             color: #333;
         }
+        
         header {
             background-color: #007bff;
             color: #fff;
             padding: 10px 20px;
             text-align: center;
         }
+        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .top-links, .main-links {
+        
+        .top-links,
+        .main-links {
             display: flex;
             list-style-type: none;
             margin: 0;
             padding: 0;
         }
-        .top-links li, .main-links li {
+        
+        .top-links li,
+        .main-links li {
             margin: 0 10px;
         }
-        .top-links li a, .main-links li a {
+        
+        .top-links li a,
+        .main-links li a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
         }
+        
         .logo {
             border: 2px solid #fff;
             border-radius: 50%;
             padding: 10px;
         }
+        
         .logo h1 {
             margin: 0;
             font-size: 48px;
@@ -51,11 +61,13 @@
             font-weight: bold;
             color: #fff;
         }
+        
         h2 {
             font-size: 24px;
             margin-top: 20px;
             margin-bottom: 20px;
         }
+        
         .hero {
             text-align: center;
             padding: 50px 0;
@@ -69,21 +81,26 @@
             align-items: center;
             transition: background-image 0.5s ease;
         }
+        
         .hero:hover {
             background-image: url('https://www.nairaland.com/attachments/13338146_qw5_jpeg431822b02cd5cedf215a3f0f5aad443e');
         }
+        
         .hero .content {
             z-index: 1;
         }
+        
         .hero h1 {
             font-size: 36px;
             margin-bottom: 20px;
         }
+        
         .hero form {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
+        
         .hero input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -91,6 +108,7 @@
             border: 1px solid #ccc;
             border-radius: 5px 0 0 5px;
         }
+        
         .hero button {
             padding: 10px 20px;
             font-size: 16px;
@@ -100,19 +118,22 @@
             color: #fff;
             cursor: pointer;
         }
+        
         .featured-listings {
             padding: 50px 20px;
             background-color: #fff;
             text-align: center;
         }
+        
         .listings {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
-            justify-items: center;
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
         }
+        
         .listing {
+            width: 23%;
+            margin-right: 2%;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 20px;
@@ -127,18 +148,21 @@
         }
         
         .listing img {
-            width: 300px; /* Set the width to 300px */
-            height: 200px; /* Set the height to 200px */
+            width: 300px;
+            height: 200px;
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        
         .listing h3 {
             margin: 0;
         }
+        
         .listing p {
             margin: 5px 0;
             color: #666;
         }
+        
         .listing a {
             display: inline-block;
             padding: 5px 10px;
@@ -148,12 +172,14 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+        
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
         }
+        
         footer ul {
             list-style-type: none;
             margin: 0;
@@ -161,13 +187,26 @@
             display: flex;
             justify-content: center;
         }
+        
         footer ul li {
             margin: 0 10px;
         }
+        
         footer ul li a {
             color: #fff;
             text-decoration: none;
         }
+        
+        .additional-details {
+            display: none;
+        }
+        
+        
+        
+        </style>
+        
+        </style>
+        
         
         
         
@@ -299,225 +338,255 @@
                 </div>
             </div>
         </section>
-        
-                    <!-- 3-bedroom Listings -->
-                    <h3>3-bedroom Apartments</h3>
-                    <!-- Listing 1 -->
-                    <div class="listing">
-                        <img src="https://i.ibb.co/hBLCtw1/3bed1.jpg" alt="Listing Image">
-                        <div class="details">
-                            <h3>Alagomeji, Yaba, Lagos</h3>
-                            <p>3 beds | All Rooms ensuite | Upflat</p>
-                            <p>Price: N3m - N3,5000,000 p/a</p>
-                            <a href="#" class="view-details">View Details</a>
-                            <div class="additional-details">
-                                <p>Agg/Comm</p>
-                                <p>Service Charge</p>
-                                <p>Caution Fee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Listing 2 -->
-                    <div class="listing">
-                        <img src="https://i.ibb.co/8B5nRSZ/3bed2.jpg" alt="Listing Image">
-                        <div class="3bedroom">
-                            <h3>Adekunle, Yaba, Lagos</h3>
-                            <p>3 bed | All Rooms ensuite | Upflat</p>
-                            <p>Price: N3m - N3,5000,000 p/a</p>
-                            <a href="#" class="view-details">View Details</a>
-                            <div class="additional-details">
-                                <p>Agg/Comm</p>
-                                <p>Service Charge</p>
-                                <p>Caution Fee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Listing 3 -->
-                    <div class="listing">
-                        <img src="https://i.ibb.co/Wf79yxG/3bed3.jpg" alt="Listing Image">
-                        <div class="3bedroom">
-                            <h3>Onike, Yaba, Lagos</h3>
-                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
-                            <p>Price: N3m - N3,5000,000 p/a</p>
-                            <a href="#" class="view-details">View Details</a>
-                            <div class="additional-details">
-                                <p>Agg/Comm</p>
-                                <p>Service Charge</p>
-                                <p>Caution Fee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Listing 4 -->
-                    <div class="listing">
-                        <img src="https://i.ibb.co/DKKkkNB/3bed4.jpg" alt="Listing Image">
-                        <div class="3bedroom">
-                            <h3>Sabo, Yaba, Lagos</h3>
-                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
-                            <p>Price: N3m - N3,5000,000 p/a</p>
-                            <a href="#" class="view-details">View Details</a>
-                            <div class="additional-details">
-                                <p>Agg/Comm</p>
-                                <p>Service Charge</p>
-                                <p>Caution Fee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Listing 5 -->
-                    <div class="listing">
-                        <img src="https://i.ibb.co/Ssf1VZp/3bed5.jpg" alt="Listing Image">
-                        <div class="3bedroom">
-                            <h3>Ebutte Meta, Yaba, Lagos</h3>
-                            <p>3bedroom | All Rooms ensuite | Miniflat</p>
-                            <p>Price: N3m - N3,5000,000 p/a</p>
-                            <a href="#" class="view-details">View Details</a>
-                            <div class="additional-details">
-                                <p>Agg/Comm</p>
-                                <p>Service Charge</p>
-                                <p>Caution Fee</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-        <!-- 1-bedroom Listings -->
-<h3>1-bedroom Apartments</h3>
-<!-- Listing 1 -->
-<div class="listing">
-    <img src="https://i.ibb.co/rpm553n/1bed1.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Alagomeji, Yaba, Lagos</h3>
-        <p>1 bed | 1 bath & toilet | Upflat</p>
-        <p>Price: N800,000 - N1,5000,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 2 -->
-<div class="listing">
-    <img src="https://i.ibb.co/MRGbDy8/1bed2.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Adekunle, Yaba, Lagos</h3>
-        <p>1 bed | 1 bath & toilet | Upflat</p>
-        <p>Price: N800,000 - N1,5000,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 3 -->
-<div class="listing">
-    <img src="https://i.ibb.co/3Cfp8vc/1bed3.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Onike/Iwaya, Yaba, Lagos</h3>
-        <p>1 bed | 1 bath & toilet | Upflat</p>
-        <p>Price: N750,000 - N1,5000,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 4 -->
-<div class="listing">
-    <img src="https://i.ibb.co/Mk4LMd5/1bed4.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Sabo, Yaba, Lagos</h3>
-        <p>1 bed | 1 bath & toilet | Upflat</p>
-        <p>Price: N800,000 - N1,5000,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 5 -->
-<div class="listing">
-    <img src="https://i.ibb.co/J2SDK2D/1bed5.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Ebutte-Meta, Yaba, Lagos</h3>
-        <p>1 bed | 1 bath & toilet | Upflat</p>
-        <p>Price: N800,000 - N1,5000,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
 
-        <!-- Roomself Listings -->
-<h3>Roomself-contained Apartments</h3>
-<!-- Listing 1 -->
-<div class="listing">
-    <img src="https://i.ibb.co/zH6dbHc/roomself1.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Alagomeji, Yaba, Lagos</h3>
-        <p>Roomself | 1 bath & toilet | Upstairs</p>
-        <p>Price: N600,000 - N800,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 2 -->
-<div class="listing">
-    <img src="https://i.ibb.co/rfmJ6SQ/roomself2.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Adekunle, Yaba, Lagos</h3>
-        <p>Roomself | 1 bath & toilet | Upstairs</p>
-        <p>Price: N500,000 - N800,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 3 -->
-<div class="listing">
-    <img src="https://i.ibb.co/RhPLfgD/roomself3.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Onike/Iwaya, Yaba, Lagos</h3>
-        <p>Roomself | 1 bath & toilet | Upstairs</p>
-        <p>Price: N500,000 - N800,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
-<!-- Listing 4 -->
-<div class="listing">
-    <img src="https://i.ibb.co/wp4VKbz/roomself4.jpg" alt="Listing Image">
-    <div class="details">
-        <h3>Ebutte Meta, Yaba, Lagos</h3>
-        <p>Roomself | 1 bath & toilet | Upstairs</p>
-        <p>Price: N500,000 - N800,000 p/a</p>
-        <a href="#" class="view-details">View Details</a>
-        <div class="additional-details">
-            <p>Agg/Comm</p>
-            <p>Service Charge</p>
-            <p>Caution Fee</p>
-        </div>
-    </div>
-</div>
+        <<section class="3 Bedroom Listings">
+            <h2>3 Bedroom Listings</h2>
+            <div class="listings">
+                <!-- Listing 1 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Alagomeji, Yaba, Lagos</h3>
+                        <p>2\3 beds | 3 baths&toilets | Upflat</p>
+                        <p>Price: N3m - N3.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Adekunle, Yaba, Lagos</h3>
+                        <p>3 beds | 3 baths&toilets | Ground Flat</p>
+                        <p>Price: N3m - N2.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/FHQwF0n/image3.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Onike, Yaba, Lagos</h3>
+                        <p>3 beds | 3 baths&toilets | upflat&Groundflat</p>
+                        <p>Price: N3m - N2.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 4 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/tp8wB59/image4.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Sabo, Yaba, Lagos</h3>
+                        <p>3 beds | 3 baths&toileets | Upflat</p>
+                        <p>Price: N3m - N2.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 5 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/cYsZZ3V/image5.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Ebute-Metta, Yaba, Lagos</h3>
+                        <p>3 beds | 3 bathstoilets | Groundflat</p>
+                        <p>Price: N3m - N3.5 p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <<section class="1 Bedroom Listings">
+            <h2>1 Bedroom Listings</h2>
+            <div class="listings">
+                <!-- Listing 1 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Alagomeji, Yaba, Lagos</h3>
+                        <p>1 beds | 2 baths&toilets | Upflat</p>
+                        <p>Price: N1m - N1.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Adekunle, Yaba, Lagos</h3>
+                        <p>1 beds | 2 baths&toilets | Ground Flat</p>
+                        <p>Price: N1m - N1.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/FHQwF0n/image3.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Onike, Yaba, Lagos</h3>
+                        <p>1 beds | 2 baths&toilets | upflat&Groundflat</p>
+                        <p>Price: N2m - N1.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 4 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/tp8wB59/image4.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Sabo, Yaba, Lagos</h3>
+                        <p>1 beds | 2 baths&toileets | Upflat</p>
+                        <p>Price: N1m - N1.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 5 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/cYsZZ3V/image5.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Ebute-Metta, Yaba, Lagos</h3>
+                        <p>1 beds | 2 bathstoilets | Groundflat</p>
+                        <p>Price: N1m - N1.5m p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <<section class="Roomself Listings">
+            <h2>Roomself Listings</h2>
+            <div class="listings">
+                <!-- Listing 1 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Alagomeji, Yaba, Lagos</h3>
+                        <p>Selfcon | baths&toilets | Upflat</p>
+                        <p>Price: N600k - N800k p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/Zhs78BG/image2.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Adekunle, Yaba, Lagos</h3>
+                        <p>Selfcon | baths&toilets | Ground Flat</p>
+                        <p>Price: N500k - N900k p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/FHQwF0n/image3.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Onike, Yaba, Lagos</h3>
+                        <p>Selfcon | baths&toilets | upflat&Groundflat</p>
+                        <p>Price: N500k - N900k p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 4 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/tp8wB59/image4.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Sabo, Yaba, Lagos</h3>
+                        <p>Selfcon | baths&toileets | Upflat</p>
+                        <p>Price: N600k - N900k p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 5 -->
+                <div class="listing">
+                    <img src="https://i.ibb.co/cYsZZ3V/image5.jpg" alt="Listing Image">
+                    <div class="details">
+                        <h3>Ebute-Metta, Yaba, Lagos</h3>
+                        <p>Selfcon | bathstoilets | Groundflat</p>
+                        <p>Price: N500k - N900k p/a</p>
+                        <a href="#" class="view-details">View Details</a>
+                        <div class="additional-details">
+                            <p>Agg/Comm</p>
+                            <p>Service Charge</p>
+                            <p>Caution Fee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        
+                  
+       
+
+       
 
     </section>
      <footer>

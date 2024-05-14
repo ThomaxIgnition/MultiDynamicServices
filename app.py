@@ -95,6 +95,38 @@ def rent():
 def shomolu():
     return render_template('shomolu.html')
 
+@app.route('/surulere.html')
+def surulere():
+    return render_template('surulere.html')
+
+@app.route('/pedro.html')
+def pedro():
+    return render_template('pedro.html')
+
+@app.route('/ladilak.html')
+def ladilak():
+    return render_template('ladilak.html')
+
+@app.route('/palmgrove.html')
+def palmgrove():
+    return render_template('palmgrove.html')
+
+@app.route('/bariga.html')
+def bariga():
+    return render_template('bariga.html')
+
+@app.route('/gbagada.html')
+def gbagada():
+    return render_template('gbagada.html')
+
+@app.route('/yaba.html')
+def yaba():
+    return render_template('yaba.html')
+
+@app.route('/sabo.html')
+def sabo():
+    return render_template('sabo.html')
+
 @app.route('/rent.html')
 def rent_page():
     return render_template('rent.html')
@@ -214,6 +246,7 @@ def about_us():
 @app.route('/home')
 def home():
     return redirect(url_for('index')) 
+
 
 @app.route('/static/uploads/<path:filename>')
 def serve_file(filename):
