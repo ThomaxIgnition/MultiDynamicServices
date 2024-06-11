@@ -14,6 +14,7 @@
             padding: 0;
             list-style: none;
         }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f6f6f6;
@@ -23,11 +24,39 @@
         header {
             background-color: #006aff;
             color: #fff;
-            padding: 10px 20px;
+            padding: 20px 40px; /* Increased padding for a larger header */
             text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        header .logo {
+            font-size: 40px; /* Increased font size for the logo */
+            font-weight: bold; /* Bolder font weight */
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px; /* Increased margin for spacing */
+            text-decoration: none;
+            font-size: 18px; /* Increased font size for the navigation links */
+            font-weight: bold; /* Bolder font weight */
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Return button styles */
+        .return-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #006aff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
         }
 
         /* Main content styles */
@@ -37,27 +66,28 @@
 
         .listings {
             display: flex;
-            flex-wrap: wrap; /* Allow listings to wrap to the next line */
-            justify-content: space-between; /* Distribute listings evenly */
-            max-width: 1200px; /* Maximum width of the listings container */
-            margin: 0 auto; /* Center the container */
-            overflow: hidden; /* Clear the float */
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
         .listing {
-            width: calc(20% - 1%); /* Set the width of each listing to 20% with margin included */
-            margin-bottom: 20px; /* Add margin at the bottom of each listing */
-            box-sizing: border-box; /* Include padding and border in the width */
-            transition: transform 0.3s; /* Add transition for smooth animation */
+            width: calc(20% - 1%);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s;
+            position: relative;
         }
 
         .listing:hover {
-            transform: translateY(-10px); /* Apply a more pronounced bounce effect on hover */
+            transform: translateY(-10px);
         }
 
         .listing img {
-            max-width: 100%; /* Set the maximum width of the images to 100% */
-            height: auto; /* Maintain aspect ratio */
+            max-width: 100%;
+            height: auto;
             border-radius: 5px;
             margin-bottom: 10px;
         }
@@ -80,6 +110,26 @@
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .listing a:hover {
+            background-color: #0047b3;
+        }
+
+        .additional-details {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            width: calc(100% - 20px);
+        }
+
+        .listing:hover .additional-details {
+            display: block;
         }
 
         /* Footer styles */
@@ -93,25 +143,25 @@
         /* Responsive styles */
         @media only screen and (max-width: 1200px) {
             .listing {
-                width: calc(25% - 1%); /* Adjust width for smaller screens to fit 4 listings in a row with margin included */
+                width: calc(25% - 1%);
             }
         }
 
         @media only screen and (max-width: 900px) {
             .listing {
-                width: calc(33.33% - 1%); /* Adjust width for smaller screens to fit 3 listings in a row with margin included */
+                width: calc(33.33% - 1%);
             }
         }
 
         @media only screen and (max-width: 600px) {
             .listing {
-                width: calc(50% - 1%); /* Adjust width for smaller screens to fit 2 listings in a row with margin included */
+                width: calc(50% - 1%);
             }
         }
 
         @media only screen and (max-width: 400px) {
             .listing {
-                width: calc(100% - 1%); /* Adjust width for smaller screens to fit 1 listing in a row with margin included */
+                width: calc(100% - 1%);
             }
         }
     </style>
@@ -119,9 +169,9 @@
 
 <body>
     <header>
-        <h1>Shomolu - Featured Listings</h1>
+        <h1>Ladi-Lak - Featured Listings</h1>
         <nav>
-            <a href="#">Home</a>
+            <span><a href="/real_estate">Home</a></span>
             <a href="#">About</a>
             <a href="#">Contact</a>
         </nav>
@@ -134,9 +184,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image1.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Yaba, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Upflat</p>
-                    <p>Price: N2m - N2,5000,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>Selfcon | baths & toilets | Upflat</p>
+                    <p>Price: N400k - N600k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -150,9 +200,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image2.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Upflat</p>
-                    <p>Price: N2m - N2,5000,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>Selfcon | baths & toilets | Upflat</p>
+                    <p>Price: N400k - N600k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -167,9 +217,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image3.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>1 bed | 1 bath & toilet | Upflat</p>
-                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>Selfcon | bath & toilet | Upflat</p>
+                    <p>Price: N400 - N700k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -183,8 +233,8 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image4.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>1 bed | 1 bath & toilet | Upflat</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>Selfcon | 1 bath & toilet | Upflat</p>
                     <p>Price: N300,000 - N500,000 p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
@@ -199,9 +249,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image5.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>1 bed | 1 bath & toilet | Upflat</p>
-                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <pSelfcon | bath & toilet | Upflat</p>
+                    <p>Price: N400 - N600 p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -222,9 +272,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image6.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Flat</p>
-                    <p>Price: N1.5m - N2m p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>1 beds | 2 baths & toilets | Flat</p>
+                    <p>Price: N800k - N900k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -238,9 +288,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image7.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Upflat</p>
-                    <p>Price: N2m - N2,500,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>1 beds | 2 baths & toilets | Upflat</p>
+                    <p>Price: N600k - N900k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -255,9 +305,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image8.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
+                    <h3>Ladi-Lak, Lagos</h3>
                     <p>1 bed | 1 bath & toilet | Upflat</p>
-                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <p>Price: N600k - N700k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -271,9 +321,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image9.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
+                    <h3>Ladi-Lak, Lagos</h3>
                     <p>1 bed | 1 bath & toilet | Upflat</p>
-                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <p>Price: N600k - N700k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -287,9 +337,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image10.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>1 bed | 1 bath & toilet | Upflat</p>
-                    <p>Price: N300,000 - N500,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>1 bed | 2 bath & toilet | Upflat</p>
+                    <p>Price: N600 - N900k p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -310,8 +360,8 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image11.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>2 beds | All Rooms Ensuit | Flat</p>
                     <p>Price: N1.5m - N2m p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
@@ -326,9 +376,9 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image12.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Upflat</p>
-                    <p>Price: N2m - N2,500,000 p/a</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>2 beds | All Rooms Ensuit | Upflat</p>
+                    <p>Price: N1.5m - N2,000,000 p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
                         <p>Service Charge</p>
@@ -343,8 +393,8 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image13.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>2 beds | All Rooms Ensuit | Flat</p>
                     <p>Price: N1.5m - N2m p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
@@ -359,8 +409,8 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image14.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>2 beds | All Rooms Ensuit | Flat</p>
                     <p>Price: N1.5m - N2m p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
@@ -375,8 +425,8 @@
             <div class="listing">
                 <img src="https://i.ibb.co/dtBtdsM/image15.jpg" alt="Listing Image">
                 <div class="details">
-                    <h3>Shomolu, Lagos</h3>
-                    <p>2 beds | 2 baths & toilets | Flat</p>
+                    <h3>Ladi-Lak, Lagos</h3>
+                    <p>2 beds | All Rooms Ensuit | Flat</p>
                     <p>Price: N1.5m - N2m p/a</p>
                     <div class="additional-details">
                         <p>Agg/Comm</p>
@@ -398,8 +448,8 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image16.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>3 beds | 3 baths & toilets | Flat</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>3 beds | All Rooms Ensuit | Flat</p>
                 <p>Price: N2m - N2.5m p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
@@ -414,8 +464,8 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image17.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>3 beds | 3 baths & toilets | Flat</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>3 beds | All Rooms Ensuit | Flat</p>
                 <p>Price: N2m - N2.5m p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
@@ -431,8 +481,8 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image18.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>3 beds | 3 baths & toilets | Flat</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>3 beds | All Rooms Ensuit | Flat</p>
                 <p>Price: N2m - N2.5m p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
@@ -447,7 +497,7 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image19.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
+                <h3>Ladi-Lak, Lagos</h3>
                 <p>3 beds | 3 baths & toilets | Flat</p>
                 <p>Price: N2m - N2.5m p/a</p>
                 <div class="additional-details">
@@ -463,8 +513,8 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image20.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>3 beds | 3 baths & toilets | Flat</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>3 beds | All Rooms Ensuit | Flat</p>
                 <p>Price: N2m - N2.5m p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
@@ -486,9 +536,9 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image21.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>4 beds | 4 baths & toilets | Duplex</p>
-                <p>Price: N3m - N4m p/a</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>4 beds | All Rooms Ensuit | Duplex</p>
+                <p>Price: N3m - Above p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
                     <p>Service Charge</p>
@@ -502,9 +552,9 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image22.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>4 beds | 4 baths & toilets | Duplex</p>
-                <p>Price: N3m - N4m p/a</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>4 beds | All Rooms Ensuit | Duplex</p>
+                <p>Price: N3m - Above p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
                     <p>Service Charge</p>
@@ -519,9 +569,9 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image23.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>4 beds | 4 baths & toilets | Duplex</p>
-                <p>Price: N3m - N4m p/a</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>4 beds | All Rooms Ensuit | Duplex</p>
+                <p>Price: N3m - Above p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
                     <p>Service Charge</p>
@@ -535,9 +585,9 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image24.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>4 beds | 4 baths & toilets | Duplex</p>
-                <p>Price: N3m - N4m p/a</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>4 beds | All Rooms Ensuit | Duplex</p>
+                <p>Price: N3m - Above p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
                     <p>Service Charge</p>
@@ -551,9 +601,9 @@
         <div class="listing">
             <img src="https://i.ibb.co/dtBtdsM/image25.jpg" alt="Listing Image">
             <div class="details">
-                <h3>Shomolu, Lagos</h3>
-                <p>4 beds | 4 baths & toilets | Duplex</p>
-                <p>Price: N3m - N4m p/a</p>
+                <h3>Ladi-Lak, Lagos</h3>
+                <p>4 beds | All Rooms Ensuit | Duplex</p>
+                <p>Price: N3m - Above p/a</p>
                 <div class="additional-details">
                     <p>Agg/Comm</p>
                     <p>Service Charge</p>

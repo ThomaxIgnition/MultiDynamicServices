@@ -135,102 +135,46 @@ def rent_page():
 def real_estate_home():
     return render_template('real_estate.html')
 
-@app.route('/locations')
-def get_locations():
-    locations = Location.query.all()
-    return jsonify(locations)
+@app.route('/buy')
+def buy():
+    return render_template('buy.html')
 
-@app.route('/apartments/<int:location_id>')
-def get_apartments(location_id):
-    apartments = Apartment.query.filter_by(location_id=location_id).all()
-    return jsonify(apartments)
+@app.route('/shomolu_buy.html')
+def shomolu_buy():
+    return render_template('shomolu_buy.html')
 
-@app.route('/upload_media', methods=['POST'])
-@login_required
-def upload_media():
-    if request.method == 'POST':
-        file = request.files['file']
-        apartment_id = request.form.get('apartment_id')
-        if file and apartment_id:
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            media = Media(filename=filename, apartment_id=apartment_id)
-            db.session.add(media)
-            db.session.commit()
-            return 'File uploaded successfully!'
-    return 'Upload failed!'
+@app.route('/bariga_buy.html')
+def bariga_buy():
+    return render_template('bariga_buy.html')
 
-@app.route('/admin/login', methods=['GET', 'POST'])
-def admin_login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        admin = Admin.query.filter_by(username=username).first()
-        if admin and admin.check_password(password):
-            return redirect(url_for('admin_dashboard'))
-        else:
-            flash('Invalid username or password.')
-    return render_template('admin_login.html')
+@app.route('/ladilak_buy.html')
+def ladilak_buy():
+    return render_template('ladilak_buy.html')
 
-@app.route('/admin/dashboard', methods=['GET', 'POST'])
-@login_required
-def admin_dashboard():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file:
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            media = Media(filename=filename)
-            db.session.add(media)
-            db.session.commit()
-            flash('File uploaded successfully!')
-        else:
-            flash('No file selected!')
+@app.route('/pedro_buy.html')
+def pedro_buy():
+    return render_template('pedro_buy.html')
 
-    medias = Media.query.all()
-    return render_template('admin_dashboard.html', medias=medias)
+@app.route('/palmgrove_buy.html')
+def palmgrove_buy():
+    return render_template('palmgrove_buy.html')
 
-@app.route('/register_now', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        if request.form['password'] != request.form['confirm_password']:
-            error = "Passwords do not match"
-            return render_template('register.html', error=error)
-        
-        username = request.form['username']
-        password = request.form['password']
-        role = 'user'
-        
-        if User.query.filter_by(username=username).first():
-            error = "Username already exists"
-            return render_template('register.html', error=error)
-        
-        new_user = User(username=username, role=role)
-        new_user.set_password(password)
-        try:
-            db.session.add(new_user)
-            db.session.commit()
-            flash('Registration successful. Please login.')
-            return redirect(url_for('index'))
-        except Exception as e:
-            db.session.rollback()
-            error = "An error occurred while registering. Please try again."
-            print(e)
-            return render_template('register.html', error=error)
+@app.route('/gbagada_buy.html')
+def gbagada_buy():
+    return render_template('gbagada_buy.html')
 
-    return render_template('register.html')
+@app.route('/yaba_buy.html')
+def yaba_buy():
+    return render_template('yaba_buy.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        user = User.query.filter_by(username=username).first()
-        if user and user.check_password(password):
-            login_user(user)
-            return redirect(url_for('index'))
-        flash('Invalid username or password.')
-    return render_template('login.html')
+@app.route('/sabo_buy.html')
+def sabo_buy():
+    return render_template('sabo_buy.html')
+
+@app.route('/surulere_buy.html')
+def surulere_buy():
+    return render_template('surulere_buy.html')
+
 
 @app.route('/logout')
 @login_required
