@@ -5,56 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MultiDynamicServices</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://i.ibb.co/3hJKc6f/bg.jpg');
-            background-size: cover;
-        }
-        .header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        .header nav a {
-            margin: 0 20px; /* Adjust the spacing as needed */
-            font-family: Arial, sans-serif; /* Change this to your title font */
-            text-decoration: none;
-            color: #fff;
-        }
-        .content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .footer {
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .service {
-            display: block;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-        }
-        .service:hover {
-            background-color: #f1f1f1;
-        }
-        .service h2 {
-            margin-top: 0;
-        }
-        .service-details {
-            display: none;
-            padding: 10px 0;
-        }
-        
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://i.postimg.cc/x1McGTRR/GB1.jpg'); /* Updated background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header h1 {
+    font-family: Arial, sans-serif; /* Same font as the links */
+    font-size: 36px; /* Increased font size for the title */
+    font-weight: bold; /* Make the text bold */
+    margin: 0;
+    padding: 0;
+}
+
+.header nav a {
+    margin: 0 20px;
+    font-family: Arial, sans-serif; /* Same font as the header */
+    text-decoration: none;
+    color: #fff;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: center; /* Center align the content */
+}
+
+.footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Service buttons with enhanced glide effect */
+.service {
+    display: block;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    background-color: #4CAF50; /* Initial green button background */
+    color: #fff;
+    border: none;
+    border-radius: 50px; /* Full-rounded edges for button look */
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: background-color 0.3s ease, transform 0.4s ease, box-shadow 0.3s ease; /* Added transition for background color */
+    cursor: pointer;
+}
+
+.service:hover {
+    background-color: #388E3C !important; /* Darker green on hover with !important */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+    transform: translateX(30px) translateY(-5px); /* Pronounced glide effect */
+}
+
+.service h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #fff; /* White text to contrast with the green background */
+}
+
+.service-details {
+    display: none;
+    padding: 10px 0;
+}
+
+
     </style>
 </head>
 <body>

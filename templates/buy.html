@@ -14,153 +14,182 @@
             list-style: none;
         }
         body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.ibb.co/sC2h5rb/bg.jpg'); /* Updated background image URL */
-            background-size: 120% 120%; /* Reduced image content size */
-            background-attachment: fixed;
-            animation: ripple 5s infinite alternate;
-        }
-        
-        @keyframes ripple {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 100% 100%;
-            }
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        /* Header styles */
-        header {
-            background-color: #006aff;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        /* Navigation styles */
-        nav {
-            background-color: #f7f7f7;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        nav ul {
-            display: flex;
-            justify-content: flex-start;
-        }
-        nav ul li {
-            margin-right: 20px;
-        }
-        /* Main content styles */
-        .main-content {
-            padding: 20px;
-        }
-        /* Featured listings styles */
-        .featured-listings {
-            margin-top: 20px;
-        }
-        .listing {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .listing img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .listing h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .listing p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        .listing a {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #006aff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        /* Footer styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer p {
-            margin: 0;
-        }
-        
-        /* Find Your Home button styles */
-        .locations {
-            position: absolute;
-            top: 50px; /* Adjust the top position */
-            left: 20px; /* Adjust the left position */
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .locations button {
-            font-size: 32px; /* Increased font size */
-            font-weight: bold;
-            background-color: royalblue;
-            color: white;
-            padding: 20px 40px; /* Increased padding */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .locations button:hover {
-            background-color: #0056b3;
-        }
-        
-        .locations ul {
-            display: none;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1;
-        }
-        
-        .locations ul li {
-            margin-bottom: 5px;
-        }
-        
-        .locations ul li a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        
-        .locations.active ul {
-            display: block;
-        }
+    font-family: Arial, sans-serif;
+    background-image: url('https://i.ibb.co/sC2h5rb/bg.jpg'); /* Updated background image URL */
+    background-size: 120% 120%; /* Reduced image content size */
+    background-attachment: fixed;
+    animation: ripple 5s infinite alternate;
+}
+
+@keyframes ripple {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header styles */
+header {
+    background-color: #006aff;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #f7f7f7;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+/* Main content styles */
+.main-content {
+    padding: 20px;
+}
+
+/* Featured listings styles */
+.featured-listings {
+    margin-top: 20px;
+}
+
+.listing {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.listing img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.listing h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.listing p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.listing a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #006aff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Find Your Home button styles */
+.locations {
+    position: absolute;
+    top: 50px; /* Adjust the top position */
+    left: 20px; /* Adjust the left position */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.locations button {
+    font-size: 32px; /* Increased font size */
+    font-weight: bold;
+    background-color: royalblue;
+    color: white;
+    padding: 20px 40px; /* Increased padding */
+    border: none;
+    border-radius: 50px; /* Full-rounded edges for button look */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.locations button:hover {
+    background-color: #0056b3;
+    transform: translateX(30px) translateY(-5px); /* Glide effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+/* Location links styles */
+.locations ul {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.locations ul li {
+    margin-bottom: 5px;
+}
+
+.locations ul li a {
+    display: inline-block;
+    font-size: 18px; /* Match the font size of the buttons */
+    font-weight: bold;
+    background-color: royalblue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px; /* Match button style */
+    text-align: center;
+    transition: background-color 0.3s, transform 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Match button shadow */
+}
+
+.locations ul li a:hover {
+    background-color: #0056b3;
+    transform: translateX(15px) translateY(-3px); /* Glide effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Match button shadow */
+}
+
+.locations.active ul {
+    display: block;
+}
+
         
         
     

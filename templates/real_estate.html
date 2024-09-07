@@ -203,6 +203,30 @@
             display: none;
         }
         
+        /* Basic styles for the dropdown */
+        #locationSelect {
+            width: 100%; /* Updated to 100% width */
+            padding: 8px; /* Updated padding */
+            margin-bottom: 10px; /* Added margin-bottom */
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        
+        /* Adding animation for the options */
+        #locationSelect option {
+            padding: 10px; /* Updated padding for options */
+            font-size: 16px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        
+        #locationSelect option:hover {
+            background-color: #f0f0f0; /* Optional: change background color on hover */
+            transform: translateX(15px); /* Slide the option to the right on hover */
+            opacity: 0.9; /* Slightly change opacity on hover */
+        }
+        
+
         
         
         
@@ -243,8 +267,28 @@
     <section class="hero">
         <div class="content">
             <h1>Find Your Perfect Home</h1>
-            <form>
-                <input type="text" placeholder="Enter address, neighborhood, city, or ZIP code">
+            <form id="searchForm">
+                <select id="locationSelect" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+                    <option value="" disabled selected>Select location</option>
+                    <option value="shomolu.html">Shomolu Rent</option>
+                    <option value="shomolu_buy.html">Shomolu Buy</option>
+                    <option value="bariga.html">Bariga Rent</option>
+                    <option value="bariga_buy.html">Bariga Buy</option>
+                    <option value="ladilak.html">Ladilak Rent</option>
+                    <option value="ladilak_buy.html">Ladilak Buy</option>
+                    <option value="pedro.html">Pedro Rent</option>
+                    <option value="pedro_buy.html">Pedro Buy</option>
+                    <option value="gbagada.html">Gbagada Rent</option> 
+                    <option value="gbagada_buy.html">Gbagada Buy</option> 
+                    <option value="palmgrove.html">Palmgrove Rent</option> 
+                    <option value="palmgrove_buy.html">Palmgrove Buy</option> 
+                    <option value="sabo.html">Sabo Rent</option> 
+                    <option value="sabo_buy.html">Sabo Buy</option> 
+                    <option value="surulere.html">Surulere Rent</option> 
+                    <option value="surulere_buy.html">Surulere Buy</option> 
+                    <option value="yaba.html">Yaba Rent</option> 
+                    <option value="yaba_buy.html">Yaba Buy</option> 
+                </select>
                 <button type="submit">Search</button>
             </form>
         </div>
@@ -615,6 +659,49 @@
                     details.style.display = 'block';
                 });
             });
+        </script>
+
+        <script>
+            document.getElementById('locationSelect').addEventListener('change', function() {
+                var select = this;
+                var selectedOption = select.options[select.selectedIndex].value;
+            
+                // Disable all options except the selected one
+                for (var i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value !== selectedOption) {
+                        select.options[i].disabled = true;
+                    }
+                }
+            
+                // Hide the dropdown after selection
+                hideDropdown();
+            });
+            
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var location = document.getElementById('locationSelect').value;
+                if (location) {
+                    window.location.href = location;
+                } else {
+                    alert('Please select a location');
+                }
+            });
+            
+            function showDropdown() {
+                var select = document.getElementById('locationSelect');
+                // Enable all options on hover
+                for (var i = 0; i < select.options.length; i++) {
+                    select.options[i].disabled = false;
+                }
+                select.size = select.options.length; // Show all options
+            }
+            
+            function hideDropdown() {
+                var select = document.getElementById('locationSelect');
+                select.size = 1; // Show only the selected option
+            }
+            
+            
         </script>
     </body>
     </html>
